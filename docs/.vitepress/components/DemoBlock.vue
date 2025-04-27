@@ -1,10 +1,10 @@
 <template>
   <div class="demo-block">
     <div class="demo-block__description" v-if="$slots.description">
-      <slot name="description"></slot>
+      <slot name="description"/>
     </div>
     <div class="demo-block__source">
-      <slot name="source"></slot>
+      <slot name="source"/>
     </div>
     <div class="demo-block__actions">
       <button @click="runCode">运行代码</button>
@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts">
 import { ref } from 'vue'
 
 const result = ref('')

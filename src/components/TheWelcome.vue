@@ -32,8 +32,11 @@ const openReadmeInEditor = () => fetch('/__open-in-editor?file=README.md')
     recommended IDE setup is
     <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a>
     +
-    <a href="https://github.com/vuejs/language-tools" target="_blank" rel="noopener">Vue - Official</a>. If
-    you need to test your components and web pages, check out
+    <a href="https://github.com/vuejs/language-tools"
+target="_blank"
+rel="noopener"
+      >Vue - Official</a
+    >. If you need to test your components and web pages, check out
     <a href="https://vitest.dev/" target="_blank" rel="noopener">Vitest</a>
     and
     <a href="https://www.cypress.io/" target="_blank" rel="noopener">Cypress</a>
@@ -72,7 +75,9 @@ const openReadmeInEditor = () => fetch('/__open-in-editor?file=README.md')
     Got stuck? Ask your question on
     <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Vue Land</a>
     (our official Discord server), or
-    <a href="https://stackoverflow.com/questions/tagged/vue.js" target="_blank" rel="noopener"
+    <a href="https://stackoverflow.com/questions/tagged/vue.js"
+target="_blank"
+rel="noopener"
       >StackOverflow</a
     >. You should also follow the official
     <a href="https://bsky.app/profile/vuejs.org" target="_blank" rel="noopener">@vuejs.org</a>

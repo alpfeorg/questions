@@ -1,7 +1,7 @@
 <template>
   <div class="run-code" ref="container">
     <div class="code-content">
-      <slot></slot>
+      <slot/>
     </div>
     <div class="code-actions">
       <button class="run-button" @click="runCode">运行</button>
@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts">
 import { ref, onMounted } from 'vue'
 
 const result = ref('')
@@ -87,21 +87,20 @@ const clearResult = () => {
 
 <style scoped>
 .run-code {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin: 16px 0;
-  overflow: hidden;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+  transition: .2s;
+  margin-bottom: 24px;
 }
 
 .code-content {
-  padding: 16px;
-  background-color: #f6f8fa;
+  padding: 24px;
 }
 
 .code-actions {
   padding: 8px 16px;
   background-color: #fff;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #eaeefb;
 }
 
 button {
