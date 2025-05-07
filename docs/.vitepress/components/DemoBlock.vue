@@ -1,10 +1,10 @@
 <template>
   <div class="demo-block">
     <div class="demo-block__description" v-if="$slots.description">
-      <slot name="description"/>
+      <slot name="description" />
     </div>
     <div class="demo-block__source">
-      <slot name="source"/>
+      <slot name="source" />
     </div>
     <div class="demo-block__actions">
       <button @click="runCode">运行代码</button>
@@ -16,14 +16,14 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref } from 'vue'
 
 const result = ref('')
 
 const runCode = () => {
   try {
-    const code = document.querySelector('.demo-block__source code').textContent
+    const code = document.querySelector('.demo-block__source code')!.textContent!
     // 使用 Function 构造函数来执行代码
     const fn = new Function(code)
     result.value = fn()
@@ -80,4 +80,4 @@ const resetCode = () => {
   margin: 0;
   white-space: pre-wrap;
 }
-</style> 
+</style>
