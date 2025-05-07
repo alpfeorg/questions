@@ -20,10 +20,19 @@ jobs:
             return { author, repo };
 
       - name: Send DingTalk notification
-        uses: xiaoxuan6/dingtalk-action@v1.0.0
-        with:
-          token: ${{ secrets.DINGTALK_TOKEN }}
-          secret: ${{ secrets.DINGTALK_SECRET }}
-          msgtype: text
-          msg: |
-            【${{ steps.commit.outputs.author }}】在【${{ steps.commit.outputs.repo }}】仓库里提交了，大家快去看呀
+        run: |
+          TIMESTAMP=$(date +%s)
+          STRING_TO_SIGN="$TIMESTAMP\n${{ secrets.DINGTALK_SECRET }}"
+          SIGN=$(echo -e "$STRING_TO_SIGN" | openssl dgst -sha256 -hmac "${{ secrets.DINGTALK_SECRET }}" | awk '{print $2}')
+
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -H "timestamp: $TIMESTAMP" \
+            -H "sign: $SIGN" \
+            -d "{
+              \"msgtype\": \"text\",
+              \"text\": {
+                \"content\": \"【${{ steps.commit.outputs.author }}】在【${{ steps.commit.outputs.repo }}】仓库里提交了，大家快去看呀\"
+              }
+            }" \
+            "${{ secrets.DINGTALK_TOKEN }}"
