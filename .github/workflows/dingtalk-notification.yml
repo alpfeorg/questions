@@ -20,10 +20,10 @@ jobs:
             return { author, repo };
 
       - name: Send DingTalk notification
-        uses: wangzaiplus/dingtalk-action@v1.0.0
+        uses: xiaoxuan6/dingtalk-action@v1.0.0
         with:
-          dingtalk_token: ${{ secrets.DINGTALK_TOKEN }}
-          dingtalk_secret: ${{ secrets.DINGTALK_SECRET }}
+          token: ${{ secrets.DINGTALK_TOKEN }}
+          secret: ${{ secrets.DINGTALK_SECRET }}
           msgtype: text
           msg: |
             【${{ steps.commit.outputs.author }}】在【${{ steps.commit.outputs.repo }}】仓库里提交了，大家快去看呀
