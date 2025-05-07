@@ -1,7 +1,7 @@
 <template>
   <div class="run-code" ref="container">
     <div class="code-content">
-      <slot/>
+      <slot />
     </div>
     <div class="code-actions">
       <button class="run-button" @click="runCode">运行</button>
@@ -14,17 +14,17 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 
 const result = ref('')
-const container = ref(null)
-let codeElement = null
+const container = ref<HTMLDivElement | null>(null)
+let codeElement
 
 onMounted(() => {
   // 在组件挂载后获取代码元素
   if (container.value) {
-    codeElement = container.value.querySelector('pre code')
+    codeElement = container.value?.querySelector('pre code')
     console.log('找到的代码元素:', codeElement)
     if (codeElement) {
       console.log('代码内容:', codeElement.textContent)
@@ -38,12 +38,12 @@ const runCode = () => {
       result.value = 'Error: 无法找到代码元素'
       return
     }
-    
+
     const code = codeElement.textContent.trim()
     console.log('要执行的代码:', code)
 
     // 创建一个新的 Function 来执行代码
-    const consoleLogs = []
+    const consoleLogs: string[] = []
     const mockConsole = {
       log: (...args) => {
         const formattedArgs = args.map(arg => {
@@ -67,7 +67,7 @@ const runCode = () => {
 
     // 执行代码
     fn(mockConsole)
-    
+
     // 显示结果
     if (consoleLogs.length > 0) {
       result.value = consoleLogs.join('\n')
@@ -144,4 +144,4 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-</style> 
+</style>
