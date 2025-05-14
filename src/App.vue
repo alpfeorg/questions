@@ -1,15 +1,28 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import prop2 from './views/prop2.vue';
+import prop3 from './views/prop3.vue'
+import { ref } from 'vue';
+
+const parentCount = ref(100)
+const updateCount = (val: number) => {
+  parentCount.value = val
+}
+type Props2Type = typeof prop2
+const prop2Ref = ref<Props2Type>()
+
+const submit = () => {
+  prop2Ref.value?.submit()
+}
+
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo"
-class="logo"
-src="@/assets/logo.svg"
-width="125"
-height="125" />
+    <prop3 />
+    <prop2 :count="parentCount" @update="updateCount" ref="prop2Ref"/>
+    <button @click="submit">父级调自己提交</button>
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
