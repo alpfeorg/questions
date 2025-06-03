@@ -17,6 +17,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@antv/x6": "^2.18.1",
     "element-plus": "^2.9.8",
     "normalize.css": "^8.0.1",
     "pinia": "^3.0.1",
