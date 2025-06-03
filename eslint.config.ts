@@ -46,7 +46,7 @@ export default defineConfigWithVueTs(
           component: 'always'
         }
       }],
-      '@typescript-eslint/no-unused-vars': ['warn', {
+      '@typescript-eslint/no-unused-vars': ['off', {
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_'
       }],

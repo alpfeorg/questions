@@ -1,7 +1,7 @@
 <template>
-  <canvas style="width: 200px;height: 200px;background-color: red;" ref="canvasRef1"></canvas>
-  <canvas style="width: 200px;height: 200px;background-color: red;" ref="canvasRef2"></canvas>
-  <canvas style="width: 200px;height: 200px;background-color: red;" ref="canvasRef3"></canvas>
+  <canvas style="width: 200px;height: 200px;background-color: red;" ref="canvasRef1"/>
+  <canvas style="width: 200px;height: 200px;background-color: red;" ref="canvasRef2"/>
+  <canvas style="width: 200px;height: 200px;background-color: red;" ref="canvasRef3"/>
 </template>
 <script setup lang="ts">
 import { onMounted, ref } from "vue"
